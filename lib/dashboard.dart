@@ -3,6 +3,7 @@ import 'package:flutter_riverpod_app/consumer_stateful_tutorial/StatefulConsumer
 import 'package:flutter_riverpod_app/future_provider/FutureProviderDemo.dart';
 import 'package:flutter_riverpod_app/provider_demo/provider_demo.dart';
 import 'package:flutter_riverpod_app/state_provider_demo/state_provider_demo.dart';
+import 'package:flutter_riverpod_app/stream_provider/StreamProviderDemo.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -86,6 +87,25 @@ class Dashboard extends StatelessWidget {
                 ),
                 child: Text(
                   "Future Provider",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+            SizedBox(height: 20,),
+            Align(
+              alignment: Alignment.center,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => StreamProviderDemo()));
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  backgroundColor: Colors.deepPurple,
+                ),
+                child: Text(
+                  "Stream Provider",
                   style: TextStyle(color: Colors.white),
                 ),
               ),
