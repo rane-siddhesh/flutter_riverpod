@@ -1,116 +1,79 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_app/consumer_stateful_tutorial/StatefulConsumerTutorial.dart';
-import 'package:flutter_riverpod_app/future_provider/FutureProviderDemo.dart';
 import 'package:flutter_riverpod_app/provider_demo/provider_demo.dart';
 import 'package:flutter_riverpod_app/state_provider_demo/state_provider_demo.dart';
 import 'package:flutter_riverpod_app/stream_provider/StreamProviderDemo.dart';
+
+import 'consumer_stateful_tutorial/StatefulConsumerTutorial.dart';
+import 'future_provider/FutureProviderDemo.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final dashboardList = [
+      'Provider\nBasics',
+      'State\nProvider',
+      'Stateful\nConsumer\nTutorial',
+      'Future\nProvider',
+      'Stream\nProvider',
+    ];
     return Scaffold(
       appBar: AppBar(title: Text("Riverpod App")),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProviderDemo()));
+        padding: const EdgeInsets.all(5.0),
+        child: GridView(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 5,
+            crossAxisSpacing: 5,
+          ),
+          children: List.generate(dashboardList.length, (index) {
+            return Padding(
+              padding: EdgeInsets.all(2.5),
+              child: InkWell(
+                onTap: () {
+                  late var destination;
+                  switch (index) {
+                    case 0:
+                      destination = ProviderDemo();
+                    case 1:
+                      destination = StateProviderDemo();
+                    case 2:
+                      destination = StatefulConsumerTutorial();
+                    case 3:
+                      destination = FutureProviderDemo();
+                    case 4:
+                      destination = StreamProviderDemo();
+                  }
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => destination),
+                  );
                 },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: Colors.deepPurple,
                   ),
-                  backgroundColor: Colors.deepPurple,
-                ),
-                child: Text(
-                  "Provider Basic",
-                  style: TextStyle(color: Colors.white),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: Text(
+                        dashboardList[index],
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 20,),
-            Align(
-              alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => StateProviderDemo()));
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  backgroundColor: Colors.deepPurple,
-                ),
-                child: Text(
-                  "StateProvider",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
-            SizedBox(height: 20,),
-            Align(
-              alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => StatefulConsumerTutorial()));
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  backgroundColor: Colors.deepPurple,
-                ),
-                child: Text(
-                  "Stateful Consumer Tutorial",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
-            SizedBox(height: 20,),
-            Align(
-              alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => FutureProviderDemo()));
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  backgroundColor: Colors.deepPurple,
-                ),
-                child: Text(
-                  "Future Provider",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
-            SizedBox(height: 20,),
-            Align(
-              alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => StreamProviderDemo()));
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  backgroundColor: Colors.deepPurple,
-                ),
-                child: Text(
-                  "Stream Provider",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
-          ],
+            );
+          }),
         ),
       ),
     );
