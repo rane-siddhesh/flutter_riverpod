@@ -2,6 +2,7 @@ import 'package:Flutter_Riverpod/provider_demo/provider_demo.dart';
 import 'package:Flutter_Riverpod/state_notifier_controller/state_notifier_demo.dart';
 import 'package:Flutter_Riverpod/state_provider_demo/state_provider_demo.dart';
 import 'package:Flutter_Riverpod/stream_provider/StreamProviderDemo.dart';
+import 'package:Flutter_Riverpod/todo/todo_demo.dart';
 import 'package:flutter/material.dart';
 
 import 'consumer_stateful_tutorial/StatefulConsumerTutorial.dart';
@@ -19,6 +20,7 @@ class Dashboard extends StatelessWidget {
       'Future\nProvider',
       'Stream\nProvider',
       'State\nNotifier\nProvider',
+      'ToDo Demo'
     ];
     return Scaffold(
       appBar: AppBar(title: Text("Riverpod App")),
@@ -49,6 +51,8 @@ class Dashboard extends StatelessWidget {
                       destination = StreamProviderDemo();
                     case 5:
                       destination = StateNotifierProviderDemo();
+                    case 6:
+                      destination = ToDoDemo();
                   }
                   Navigator.push(
                     context,
