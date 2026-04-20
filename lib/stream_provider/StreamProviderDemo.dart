@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod_app/stream_provider/fake_stream_service.dart';
+
+import 'fake_stream_service.dart';
 
 final tickProvider = StreamProvider((Ref ref) {
   final timerServiceAscyn = ref.read(timerServiceProvider);

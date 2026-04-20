@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod_app/future_provider/FakeApiService.dart';
+
+import 'FakeApiService.dart';
 
 final fakeApiProvider = Provider((_) => FakeApiService());
 

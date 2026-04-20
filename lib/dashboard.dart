@@ -1,7 +1,7 @@
+import 'package:Flutter_Riverpod/provider_demo/provider_demo.dart';
+import 'package:Flutter_Riverpod/state_provider_demo/state_provider_demo.dart';
+import 'package:Flutter_Riverpod/stream_provider/StreamProviderDemo.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_app/provider_demo/provider_demo.dart';
-import 'package:flutter_riverpod_app/state_provider_demo/state_provider_demo.dart';
-import 'package:flutter_riverpod_app/stream_provider/StreamProviderDemo.dart';
 
 import 'consumer_stateful_tutorial/StatefulConsumerTutorial.dart';
 import 'future_provider/FutureProviderDemo.dart';
