@@ -13,6 +13,12 @@ class ToDoDemo extends ConsumerStatefulWidget {
 
 class _ToDoDemoState extends ConsumerState<ToDoDemo> {
   final _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     final todos = ref.watch(todoProvider);
@@ -29,6 +35,7 @@ class _ToDoDemoState extends ConsumerState<ToDoDemo> {
                 SizedBox(width: 10,),
                 IconButton(onPressed: (){
                   todoNotifier.add(_controller.text);
+                  _controller.clear();
                 }, icon: Icon(Icons.add))
               ],
             ),

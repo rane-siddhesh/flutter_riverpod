@@ -29,6 +29,7 @@ class Dashboard extends StatelessWidget {
         child: GridView(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
+            mainAxisExtent: 100,
             mainAxisSpacing: 5,
             crossAxisSpacing: 5,
           ),
