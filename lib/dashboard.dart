@@ -1,3 +1,4 @@
+import 'package:Flutter_Riverpod/async_notifier_provider/async_notifier_demo.dart';
 import 'package:Flutter_Riverpod/provider_demo/provider_demo.dart';
 import 'package:Flutter_Riverpod/state_notifier_controller/state_notifier_demo.dart';
 import 'package:Flutter_Riverpod/state_provider_demo/state_provider_demo.dart';
@@ -20,7 +21,8 @@ class Dashboard extends StatelessWidget {
       'Future\nProvider',
       'Stream\nProvider',
       'State\nNotifier\nProvider',
-      'ToDo Demo'
+      'ToDo Demo',
+      'Async\nNotifier\nProvider',
     ];
     return Scaffold(
       appBar: AppBar(title: Text("Riverpod App")),
@@ -54,6 +56,8 @@ class Dashboard extends StatelessWidget {
                       destination = StateNotifierProviderDemo();
                     case 6:
                       destination = ToDoDemo();
+                    case 7:
+                      destination = AsyncNotifierDemo();
                   }
                   Navigator.push(
                     context,
